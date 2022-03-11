@@ -1,4 +1,4 @@
-let posts=[ ];
+let posts=[];
 
 const likedPostsId = [];
 const reportedPostsId = [];
@@ -12,11 +12,11 @@ const getReportedPosts = () => {
 };
 
 const isLiked = (id) => {
-    return likedPostsId?.length && !!likedPostsId.includes(id);
+    return likedPostsId?.length && likedPostsId.includes(id);
 };
 
 const addToLiked = (id) => {
-    likedPostsId.plus(id); 
+    likedPostsId.push(id); 
     showPosts(posts);
 };
 
@@ -27,7 +27,7 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
-    return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
+    return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
 const switchTab = (id) => {
@@ -51,7 +51,7 @@ const switchTab = (id) => {
 };
 
 const createPost = (post) => {
-    const image = post.image;
+    // const image = post.image;
     const div = document.createElement( "article" );
     div.classList.add( "post" );
     div.innerHTML = `
@@ -62,9 +62,9 @@ const createPost = (post) => {
                     target="_blank"
                     class="post__avatar"
                   >
-                    <img src="${image}" alt="User Picture" />
+                    <img src="${post.userImage}" alt="User Picture" />
                   </a>
-                  <a href="#" class="post__user">phero</a>
+                  <a href="#" class="post__user">Phero</a>
                 </div>
 
                 <button class="post__more-options">
@@ -76,7 +76,7 @@ const createPost = (post) => {
                 <div class="post__medias">
                   <img
                     class="post__media"
-                    src="${image}"
+                    src="${post.image}"
                     alt="Post Content"
                   />
                 </div>
@@ -120,9 +120,9 @@ const createPost = (post) => {
                   <div class="post__description">
                     <small>
                       <a class="post__name--underline" href="#">
-                          ${post.comments?.user}
+                      ${post.comments[0].user}
                       </a>
-                      ${post.comments?.text}
+                      ${post.comments[0].text}
                     </small>
                   </div>
                   <span class="post__date-time">30 minutes ago</span>
@@ -133,7 +133,7 @@ const createPost = (post) => {
 };
 
 const showPosts = (posts) => {
-    const productsContainer = document.getElementById( "posts" );
+    const productsContainer = document.getElementById("posts");
     productsContainer.innerHTML = "";
 
     posts.forEach((post) => {
