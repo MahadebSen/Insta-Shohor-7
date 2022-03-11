@@ -79,14 +79,27 @@
         </main>
         <hr>
         <section>
-            <div class="navbar-brand p-4 fw-bold">
+            <div class="navbar-brand p-3 fw-bold">
                ** Question and Answer **
             </div>
-            <div >
-               1. How does JavaScript work?
+            <div class="py-2">
+                <div class="fw-bold px-3">
+                    1. How does JavaScript work?
+                 </div>
+                 <div class="px-4">
+                     JavaScript is a high-level, interpreted, asynchronous, and single-threaded programming language.
+                     JavaScript can handle one task means one piece of code at a time. It is a faster execution program due to its asynchronous behavior. That means a single line of code doesn’t prevent the execution of another piece of code. It has a single call stack, a queue, and a memory heap. When we enter a function, it goes to the top of the stack. After returning, it removes from the stack. But when the time comes for asynchronous functions (like setTimeout, fetch, etc), those functions go into the queue. After completing the execution of the call stack’s function, the queue’s execution starts.
+                 </div>
             </div>
-            <div>
-                JavaScript is high 
+            <div class="py-">
+                <div class="fw-bold px-3">
+                    2. Difference between Local storage and Session storage.
+                </div>
+                <div class="px-4">
+                    Local storage and session storage both are almost same. Both have same storage capacity which is 5-10 MB. Both can’t access the server-side. And both can’t transfer http request. But both have a significant difference, which is…
+                    Local storage can keep data until manually deleted. But session storage can keep data until the browser tab is closed.
+    
+                </div>
             </div>
         </section>
         <footer></footer>
